@@ -1,0 +1,6 @@
+def solution(strlist):
+    answer = []
+    for i in strlist:
+        index=len(i)
+        answer.append(index)
+    return answer
