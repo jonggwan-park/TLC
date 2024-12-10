@@ -1,0 +1,7 @@
+def solution(numbers):
+    answer = 0
+    sum_i = 0
+    for i in numbers:
+        sum_i += i
+    answer = sum_i/len(numbers)
+    return answer
