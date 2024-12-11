@@ -1,0 +1,7 @@
+def solution(slice, n):
+    answer = 0
+    if n/slice == n//slice:
+        answer = n/slice
+    elif n/slice >n//slice:
+        answer = n//slice+1
+    return answer
