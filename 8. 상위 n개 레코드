@@ -1,0 +1,7 @@
+SELECT NAME 
+FROM (
+    select RANK() over(order by DATETIME) as rank_date,
+            name
+    from ANIMAL_INS
+    ) a
+WHERE rank_date = 1
