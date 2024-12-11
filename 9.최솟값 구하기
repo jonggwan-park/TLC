@@ -1,0 +1,7 @@
+with ranked_animals as(
+select datetime,
+        rank() over(order by DATETIME) as rank_date
+from ANIMAL_INS)
+SELECT DATETIME as '시간'
+from ranked_animals
+WHERE rank_date = 1
