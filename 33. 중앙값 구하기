@@ -1,0 +1,6 @@
+def solution(array):
+    answer = 0
+    array_sorted = array.sort()
+    mok=len(array)//2
+    answer = array[mok]
+    return answer
