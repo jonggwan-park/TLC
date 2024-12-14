@@ -1,0 +1,28 @@
+def solution(dots):
+    answer = 0
+    for i in range(len(dots)):
+        for j in range(i + 1, len(dots)):
+            # i, j를 제외한 나머지 두 점 선택
+            remaining = [dots[k] for k in range(len(dots)) if k != i and k != j]
+            
+            # 두 직선의 기울기 계산
+            x1, y1 = dots[i]
+            x2, y2 = dots[j]
+            x3, y3 = remaining[0]
+            x4, y4 = remaining[1]
+            
+            try:
+                # 첫 번째 직선 기울기
+                slope1 = (y1 - y2) / (x1 - x2)
+                # 두 번째 직선 기울기
+                slope2 = (y3 - y4) / (x3 - x4)
+                
+                # 기울기가 같으면 answer = 1
+                if slope1 == slope2:
+                    return 1
+            except ZeroDivisionError:
+                # 수직선의 경우 x 좌표가 같으면 기울기는 무한대
+                if x1 == x2 and x3 == x4:
+                    return 1
+                
+    return answer
