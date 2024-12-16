@@ -1,0 +1,20 @@
+import math
+
+def solution(numer1, denom1, numer2, denom2):
+    # 최소공배수 계산
+    def lcm(a, b):
+        return abs(a * b) // math.gcd(a, b)
+
+    # 두 분모의 최소공배수
+    lcm_value = lcm(denom1, denom2)
+
+    # 통분 후 분자 계산
+    numer_sum = numer1 * (lcm_value // denom1) + numer2 * (lcm_value // denom2)
+
+    # 기약분수로 변환
+    gcd_value = math.gcd(int(numer_sum), int(lcm_value))
+    numer_final = numer_sum // gcd_value
+    denom_final = lcm_value // gcd_value
+
+    # 결과 반환
+    return [numer_final, denom_final]
