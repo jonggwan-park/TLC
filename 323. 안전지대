@@ -1,0 +1,23 @@
+def solution(board):
+    answer = 0
+
+    # 주변 칸을 2로 설정하는 함수
+    def mark_surrounding(board, x, y):
+        directions = [(-1, -1), (-1, 0), (-1, 1),
+                      (0, -1), (0, 0), (0, 1),
+                      (1, -1), (1, 0), (1, 1)]
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
+            # 경계값 확인
+            if 0 <= nx < len(board) and 0 <= ny < len(board[0]) and board[nx][ny] == 0:
+                board[nx][ny] = 2
+
+    # 보드를 순회하며 값이 1인 경우 처리
+    for outer_index, inner_list in enumerate(board):
+        for inner_index, inner_value in enumerate(inner_list):
+            if inner_value == 1:
+                mark_surrounding(board, outer_index, inner_index)
+
+    # 0의 개수를 세어 반환
+    answer = sum(row.count(0) for row in board)
+    return answer
