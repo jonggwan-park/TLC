@@ -1,0 +1,32 @@
+def solution(n, m, tests):
+    set_mat=set()
+    for q in range(n+1):
+        for w in range(m+1):
+            set_mat.add((q,w))    
+    for i in range(n+1):
+        for j in range(m+1):
+            for t in tests:
+                x,y,d,flag=t
+                if flag ==1:
+                    if abs(i-x)+abs(j-y)>d:
+                        set_mat.discard((i,j)) 
+                elif flag==0:
+                    if abs(i-x)+abs(j-y)<=d:
+                        set_mat.discard((i,j))
+    answer = len(set_mat)                    
+    return answer
+------------------------------------------------------------------------------------
+    def solution(n, m, tests):
+    set_mat = set((q, w) for q in range(n+1) for w in range(m+1))  # 모든 좌표 추가
+    
+    for x, y, d, flag in tests:
+        for i in range(n+1):
+            for j in range(m+1):
+                distance = abs(i-x) + abs(j-y)  # 거리 계산
+                
+                if flag == 1 and distance > d:  # flag == 1 조건
+                    set_mat.discard((i, j))
+                elif flag == 0 and distance <= d:  # flag == 0 조건
+                    set_mat.discard((i, j))
+    
+    return len(set_mat)
