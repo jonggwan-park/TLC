@@ -1,0 +1,8 @@
+SELECT ANIMAL_ID,
+        NAME,
+        DATE(DATETIME) AS 날짜
+FROM ANIMAL_INS
+ORDER BY 1
+
+
+# 이렇게 작성했는데 뭐가 오류인지 모르겠다.
