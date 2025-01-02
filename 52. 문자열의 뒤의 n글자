@@ -1,0 +1,6 @@
+def solution(my_string, n):
+    my_list = list(my_string)  # 문자열을 리스트로 변환
+    answer = []
+    for i in range(n):
+        answer.append(my_list.pop())  # 리스트의 마지막 요소를 꺼내기
+    return ''.join(answer[::-1])  # 뒤집고 다시 문자열로 변환
