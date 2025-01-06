@@ -1,0 +1,9 @@
+SELECT a.USERS
+FROM (
+    SELECT USER_ID,
+    COUNT(USER_ID) AS USERS,
+           AGE,
+            JOINED          
+    FROM USER_INFO
+    WHERE JOINED LIKE '2021%' AND AGE BETWEEN 20 AND 29
+) a;
