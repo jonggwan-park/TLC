@@ -1,0 +1,5 @@
+def solution(rsp):
+    # 승리 규칙을 딕셔너리로 정의
+    win_rule = {'2': '0', '0': '5', '5': '2'}
+    # 각 문자를 변환한 후 결합
+    return ''.join(win_rule[char] for char in rsp)
